@@ -1,6 +1,7 @@
-{ lib
-, python3
-, fetchFromGitHub
+{
+  lib,
+  python3,
+  fetchFromGitHub,
 }:
 
 python3.pkgs.buildPythonApplication rec {
@@ -22,9 +23,7 @@ python3.pkgs.buildPythonApplication rec {
     python3.pkgs.wheel
   ];
 
-  nativeBuildInputs = [
-    python3.pkgs.pythonRelaxDepsHook
-  ];
+  nativeBuildInputs = [ python3.pkgs.pythonRelaxDepsHook ];
 
   dependencies = with python3.pkgs; [
     joblib
@@ -41,10 +40,8 @@ python3.pkgs.buildPythonApplication rec {
   '';
 
   meta = {
-    description = "A tool for identifying bot accounts based on their recent GitHub event history";
-    homepage = "https://github.com/natarajan-chidambaram/RABBIT";
+    homepage = "https://github.com/ahmad-abdellatif/BotHunter";
     license = lib.licenses.asl20;
-    mainProgram = "rabbit";
-    maintainers = with lib.maintainers; [ drupol ];
+    mainProgram = "bothunter";
   };
 }
