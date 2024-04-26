@@ -5,6 +5,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
+    scikit-learn-1-2.url = "github:NixOS/nixpkgs/e08e100b0c6a6651c3235d1520c53280142d9d5f";
   };
 
   outputs =

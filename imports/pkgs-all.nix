@@ -12,7 +12,7 @@
     }:
     {
       packages = {
-        example2 = pkgs.callPackage ../pkgs/example2 { };
+        scikit-learn-1-3-2 = pkgs.callPackage ../pkgs/scikit-learn-1-3-2 { };
       };
     };
 }

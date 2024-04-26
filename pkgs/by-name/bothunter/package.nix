@@ -1,10 +1,13 @@
 {
   lib,
-  python3,
   fetchFromGitHub,
+  pkgs,
 }:
 
-python3.pkgs.buildPythonApplication rec {
+let
+  python3 = pkgs.scikit-learn-1-2.python3;
+in
+pkgs.scikit-learn-1-2.python3.pkgs.buildPythonApplication rec {
   pname = "bothunter";
   version = "e2f95516e675b6a9a37423f7517ecbd06d21ad86";
   format = "pyproject";
@@ -16,16 +19,15 @@ python3.pkgs.buildPythonApplication rec {
     hash = "sha256-rH3juXroZM8XQhRlnFms3oM0xbRKPKHNlSx7IjuJ/9U=";
   };
 
-  pythonRelaxDeps = true;
-
-  build-system = [
+  nativeBuildInputs = [
     python3.pkgs.setuptools
     python3.pkgs.wheel
+    python3.pkgs.pythonRelaxDepsHook
   ];
 
-  nativeBuildInputs = [ python3.pkgs.pythonRelaxDepsHook ];
+  pythonRelaxDeps = true;
 
-  dependencies = with python3.pkgs; [
+  propagatedBuildInputs = with python3.pkgs; [
     joblib
     numpy
     pygithub
