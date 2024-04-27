@@ -1,13 +1,13 @@
 {
   lib,
   fetchFromGitHub,
-  pkgs,
+  scikit-learn-1-2,
 }:
 
 let
-  python3 = pkgs.scikit-learn-1-2.python3;
+  python3 = scikit-learn-1-2.python3;
 in
-pkgs.scikit-learn-1-2.python3.pkgs.buildPythonApplication rec {
+scikit-learn-1-2.python3.pkgs.buildPythonApplication rec {
   pname = "bothunter";
   version = "e2f95516e675b6a9a37423f7517ecbd06d21ad86";
   format = "pyproject";
@@ -22,10 +22,7 @@ pkgs.scikit-learn-1-2.python3.pkgs.buildPythonApplication rec {
   nativeBuildInputs = [
     python3.pkgs.setuptools
     python3.pkgs.wheel
-    python3.pkgs.pythonRelaxDepsHook
   ];
-
-  pythonRelaxDeps = true;
 
   propagatedBuildInputs = with python3.pkgs; [
     joblib
