@@ -1,7 +1,6 @@
 {
   lib,
   fetchFromGitHub,
-  fetchpatch,
   scikit-learn-1-2,
 }:
 
